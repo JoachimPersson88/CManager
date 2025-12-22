@@ -55,6 +55,26 @@ public class CustomerService : ICustomerService
         }
     }
 
+    // Hämtar en kund baserat på e-postadress
+    public CustomerModel? GetCustomerByEmail(string email)
+    {
+        // Försöker hämta alla kunder och leta efter matchande e-post
+        try
+        {
+            // Hämtar alla kunder från repositoryt
+            var customers = _customerRepo.GetAllCustomers();
+
+            // Letar efter en kund med matchande e-postadress
+            return customers.FirstOrDefault(c =>
+                c.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
+        }
+        // Vid fel returneras null
+        catch
+        {
+            return null;
+        }
+    }
+
     // Hämtar alla kunder och indikerar om något fel uppstod via out-parametern
     public IEnumerable<CustomerModel> GetAllCustomers(out bool hasError)
     {

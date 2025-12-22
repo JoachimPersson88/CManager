@@ -28,6 +28,7 @@ public class MenuController
             Console.WriteLine("Customer Manager");
             Console.WriteLine("1. Create Customer");
             Console.WriteLine("2. View All Customers");
+            Console.WriteLine("3. View Specific Customer");
             Console.WriteLine("0. Exit");
             Console.Write("Choose option: ");
 
@@ -43,6 +44,11 @@ public class MenuController
                 case "2":
                     ViewAllCustomers();   // Menyval för att visa alla kunder
                     break;
+
+                case "3":
+                    ViewSpecificCustomer();
+                    break;
+
 
                 case "0":
                     return;               // Avslutar metoden och därmed programmet
@@ -90,6 +96,7 @@ public class MenuController
     // Menyflöde för att visa alla kunder
     private void ViewAllCustomers()
     {
+        // Rensa konsolen och visa rubrik
         Console.Clear();
         Console.WriteLine("All Customers");
 
@@ -112,6 +119,7 @@ public class MenuController
             // Loopa igenom alla kunder och skriv ut deras info
             foreach (var customer in customers)
             {
+                Console.Clear();
                 Console.WriteLine($"Name: {customer.FirstName} {customer.LastName}");
                 Console.WriteLine($"Email: {customer.Email}");
                 Console.WriteLine($"Phone: {customer.PhoneNumber}");
@@ -123,6 +131,41 @@ public class MenuController
 
         OutputDialog("Press any key to continue...");
     }
+
+    // Menyflöde för att visa en specifik kund baserat på e-post
+    private void ViewSpecificCustomer()
+    {
+        // Rensa konsolen och visa rubrik
+        Console.Clear();
+        Console.WriteLine("View Specific Customer");
+
+        // Läser in och validerar e-post från användaren
+        var email = InputHelper.ValidateInput("Email", ValidationType.Email);
+
+        // Hämtar kunden via service-lagret
+        var customer = _customerService.GetCustomerByEmail(email);
+
+        // Visar kundens information eller ett felmeddelande om kunden inte hittades
+        if (customer == null)
+        {
+            Console.WriteLine("Customer not found.");
+        }
+        // Om kunden hittades, visa dess information
+        else
+        {
+            Console.Clear();
+            Console.WriteLine($"Name: {customer.FirstName} {customer.LastName}");
+            Console.WriteLine($"Email: {customer.Email}");
+            Console.WriteLine($"Phone: {customer.PhoneNumber}");
+            Console.WriteLine($"Address: {customer.Address.StreetAddress}");
+            Console.WriteLine($"Postal Code: {customer.Address.PostalCode}");
+            Console.WriteLine($"City: {customer.Address.City}");
+            Console.WriteLine($"ID: {customer.Id}");
+        }
+        // Vänta på användarens knapptryck innan återgång till menyn
+        OutputDialog("Press any key to continue...");
+    }
+
 
     // Hjälpmetod för att visa ett meddelande och vänta på knapptryck
     private void OutputDialog(string message)
