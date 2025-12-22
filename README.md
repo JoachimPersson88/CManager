@@ -29,9 +29,9 @@
 
 - När kund skapas får den ett unikt Id (GUID). ✔
 
-- Det går att hämta alla kunder från listan via Service. 
+- Det går att hämta alla kunder från listan via Service. ✔
 
-- Det går att hämta en specifik kund från listan via Service.
+- Det går att hämta en specifik kund från listan via Service. ✔
 
 - Det går att ta bort en specifik kund från listan via Service.
 
@@ -61,14 +61,14 @@
 	- E-postadress ✔
 	- Visa en specifik kund ✔
 
- - Visar en (vald) kunds:
-	- Fullständigt namn
-	- Id
-	- Telefonnummer
-	- E-postadress
-	- Gatuadress 
-	- Postnummer
-	- Ort
+ - Visar en (vald) kunds: ✔
+	- Fullständigt namn ✔
+	- Id ✔
+	- Telefonnummer ✔
+	- E-postadress ✔
+	- Gatuadress ✔ 
+	- Postnummer ✔
+	- Ort ✔
 
 - Ta bort en specifik kund.
 
