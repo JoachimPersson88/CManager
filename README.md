@@ -85,9 +85,9 @@
 
 - Repository använder ett interface. ✔
 
-- Det finns minst ett enhetstest för en metod i Service.
+- Det finns minst ett enhetstest för en metod i Service. ✔
 
-- Enhetstestet använder mock för att simulera Repository.
+- Enhetstestet använder mock för att simulera Repository. ✔
 
 - Flera pushar till GitHub har gjorts under projektets gång.
 
