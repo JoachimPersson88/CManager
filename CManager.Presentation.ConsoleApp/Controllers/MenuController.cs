@@ -29,6 +29,7 @@ public class MenuController
             Console.WriteLine("1. Create Customer");
             Console.WriteLine("2. View All Customers");
             Console.WriteLine("3. View Specific Customer");
+            Console.WriteLine("4. Remove Customer");
             Console.WriteLine("0. Exit");
             Console.Write("Choose option: ");
 
@@ -49,6 +50,9 @@ public class MenuController
                     ViewSpecificCustomer();
                     break;
 
+                case "4":
+                    RemoveCustomer();  // Menyval för att ta bort kund
+                    break;
 
                 case "0":
                     return;               // Avslutar metoden och därmed programmet
@@ -166,6 +170,26 @@ public class MenuController
         OutputDialog("Press any key to continue...");
     }
 
+    // Menyflöde för att ta bort en kund baserat på e-post
+    private void RemoveCustomer()
+    {
+        Console.Clear();
+        Console.WriteLine("Remove Customer");
+        // Läser in och validerar e-post från användaren
+        var email = InputHelper.ValidateInput("Email", ValidationType.Email);
+        // Anropar service-lagret för att ta bort kunden
+        var result = _customerService.RemoveCustomerByEmail(email);
+
+        if (result)
+        {
+            Console.WriteLine("Customer was removed successfully.");
+        }
+        else
+        {
+            Console.WriteLine("Customer not found or something went wrong.");
+        }
+        OutputDialog("Press any key to continue...");
+    }
 
     // Hjälpmetod för att visa ett meddelande och vänta på knapptryck
     private void OutputDialog(string message)

@@ -14,6 +14,9 @@ public interface ICustomerService
     CustomerModel? GetCustomerByEmail(string email);
     // Hämtar en kund baserat på e-postadress, returnerar null om ingen kund hittas
 
+    // Tar bort en kund baserat på e-postadress, returnerar true/false om det lyckades
+    bool RemoveCustomerByEmail(string email);
+
     // Hämtar alla kunder och anger via hasError om något gick fel
     IEnumerable<CustomerModel> GetAllCustomers(out bool hasError);
 }

@@ -75,6 +75,31 @@ public class CustomerService : ICustomerService
         }
     }
 
+    // Tar bort en kund baserat på e-postadress
+    public bool RemoveCustomerByEmail(string email)
+    {
+        try
+        {
+            // Hämtar alla kunder från repositoryt
+            var customers = _customerRepo.GetAllCustomers();
+            // Letar upp kunden som ska tas bort
+            var customerToRemove = customers.FirstOrDefault(c =>
+                c.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
+            // Om kunden inte hittas returneras false
+            if (customerToRemove == null)
+                return false;
+            // Tar bort kunden från listan
+            customers.Remove(customerToRemove);
+            // Sparar tillbaka den uppdaterade listan till fil
+            return _customerRepo.SaveCustomers(customers);
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+
     // Hämtar alla kunder och indikerar om något fel uppstod via out-parametern
     public IEnumerable<CustomerModel> GetAllCustomers(out bool hasError)
     {
