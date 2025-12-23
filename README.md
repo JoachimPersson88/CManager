@@ -21,7 +21,7 @@
 
 - De inlästa kunderna läggs in i en lista i programmet. ✔
 
-## Service (logik för kunder)
+## Service (logik för kunder) ✅
 
 - Det finns en Service-klass för kunder. ✔
 
@@ -33,16 +33,16 @@
 
 - Det går att hämta en specifik kund från listan via Service. ✔
 
-- Det går att ta bort en specifik kund från listan via Service.
+- Det går att ta bort en specifik kund från listan via Service. ✔
 
 
-## Controller / Meny (konsol)
+## Controller / Meny (konsol) ✅
 
 - Det finns en Controller som hanterar konsol-menyn. ✔
 
-- Menyn loopar (man kommer alltid tillbaka till menyn efter ett val).
+- Menyn loopar (man kommer alltid tillbaka till menyn efter ett val). ✔
 
-#### Menyn har följande alternativ:
+#### Menyn har följande alternativ: ✅
 
 - Skapa kund ✔
 
@@ -70,14 +70,14 @@
 	- Postnummer ✔
 	- Ort ✔
 
-- Ta bort en specifik kund.
+- Ta bort en specifik kund. ✔
 
-- Man kan ta bort kund baserat på e-postadress.
+- Man kan ta bort kund baserat på e-postadress. ✔
 
-- Ett meddelande visar att kunden har blivit borttagen.
+- Ett meddelande visar att kunden har blivit borttagen. ✔
 
 
-## SOLID / Interface / Tester / Git
+## SOLID / Interface / Tester / Git ✅
 
 - Minst en SOLID-princip är tillämpad. ✔
 
@@ -89,6 +89,6 @@
 
 - Enhetstestet använder mock för att simulera Repository. ✔
 
-- Flera pushar till GitHub har gjorts under projektets gång.
+- Flera pushar till GitHub har gjorts under projektets gång. ✔
 
-- Commit-meddelanden är tydliga och visar progression.
+- Commit-meddelanden är tydliga och visar progression. ✔
